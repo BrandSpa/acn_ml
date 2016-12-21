@@ -9184,10 +9184,10 @@
 			var props = a.getAttribute('data-props');
 			var texts = this.state.texts;
 			try {
-				props = JSON.parse(props);
+				props = JSON.parse(JSON.stringify(props));
 				texts = _extends({}, texts, props);
 				console.log(texts);
-				this.setState({ texts: texts });
+				this.setState({ texts: texts });Ø;
 			} catch (err) {
 				console.log(err);
 			}
