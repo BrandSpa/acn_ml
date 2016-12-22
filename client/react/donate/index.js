@@ -48,8 +48,22 @@ const Donate = React.createClass({
 	render() {
 		return (
 			<div>
-				<Amount {...this.state} onlyNum={this.onlyNum} onChange={this.handleChange} />
-				<CreditCard texts={this.state.texts} />
+				<Amount 
+					{...this.state} 
+					onlyNum={this.onlyNum} 
+					onChange={this.handleChange} 
+				/>
+
+				<CreditCard 
+					{...this.state} 
+					onlyNum={this.onlyNum} 
+					onChange={this.handleChange}  
+				/>
+
+				<Contact
+					{...this.state}
+					onChange={this.handleChange} 
+				 />
 			</div>
 		)
 	}
