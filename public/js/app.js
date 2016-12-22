@@ -25352,7 +25352,7 @@
 
 	var _credit_card2 = _interopRequireDefault(_credit_card);
 
-	var _contact = __webpack_require__(293);
+	var _contact = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./contact\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	var _contact2 = _interopRequireDefault(_contact);
 
@@ -25521,9 +25521,10 @@
 					{ className: "form-group col-xs-5" },
 					_react2.default.createElement(
 						"a",
-						{ href: "#",
+						{
+							href: "#",
 							onClick: this.changeType.bind(null, 'monthly'),
-							style: donation_type == 'monthly' ? { color: 'red' } : {}
+							className: donation_type == 'monthly' ? 'donate_landing__type donate_landing__type--active' : 'donate_landing__type '
 						},
 						texts.monthly
 					),
@@ -25531,7 +25532,7 @@
 						"a",
 						{ href: "#",
 							onClick: this.changeType.bind(null, 'once'),
-							style: donation_type == 'once' ? { color: 'red' } : {}
+							className: donation_type == 'once' ? 'donate_landing__type donate_landing__type--active' : 'donate_landing__type '
 						},
 						texts.once
 					)
@@ -26745,54 +26746,6 @@
 		return polyfill;
 	};
 
-
-/***/ },
-/* 293 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-
-	var _react = __webpack_require__(88);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	var Contact = _react2.default.createClass({
-		displayName: "Contact",
-		render: function render() {
-			var texts = this.props.texts;
-
-			return _react2.default.createElement(
-				"div",
-				{ className: "row" },
-				_react2.default.createElement(
-					"div",
-					{ className: "form-group col-sm-12" },
-					_react2.default.createElement("input", {
-						type: "text",
-						className: "form-control",
-						placeholder: texts.placeholder_name
-					})
-				),
-				_react2.default.createElement(
-					"div",
-					{ className: "form-group col-sm-12" },
-					_react2.default.createElement("input", {
-						type: "text",
-						className: "form-control",
-						placeholder: texts.placeholder_email
-					})
-				)
-			);
-		}
-	});
-
-	exports.default = Contact;
 
 /***/ }
 /******/ ]);
