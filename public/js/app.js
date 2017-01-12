@@ -27244,22 +27244,25 @@
 			return Promise.all(validations);
 		},
 		isValid: function isValid() {
-			var is = this.validate().then(function (arr) {
-				return console.log(arr.every(function (item) {
+			return this.validate().then(function (arr) {
+				return arr.every(function (item) {
 					return item == false;
-				}));
+				});
 			});
-			return is;
 		},
 		handleSubmit: function handleSubmit(e) {
-			var _this2 = this;
-
 			e.preventDefault();
 			var tags = '900 419';
 			var contact = this.state;
 			this.setState(_extends({}, contact, { loading: true }));
+			this.isValid().then(this.storeContact);
+		},
+		storeContact: function storeContact(isValid) {
+			var _this2 = this;
 
-			if (this.isValid()) {
+			var contact = this.state;
+
+			if (isValid) {
 				$.ajax({
 					url: '/wp-admin/admin-ajax.php',
 					type: 'post',
@@ -27267,6 +27270,8 @@
 				}).then(function (res) {
 					_this2.setState(_extends({}, contact, { loading: false }));
 				});
+			} else {
+				this.setState(_extends({}, contact, { loading: false }));
 			}
 		},
 		handleChange: function handleChange(field, e) {

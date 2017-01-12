@@ -26,17 +26,21 @@ const HelpForm = React.createClass({
 	},
 
 	isValid() {
-		let is = this.validate().then(arr => console.log(arr.every(item => item == false) ));
-		return is;
-},
+		return this.validate().then(arr => arr.every(item => item == false) );
+	},
 
 	handleSubmit(e) {
 		e.preventDefault();
 		let tags = '900 419';
 		let contact = this.state;
 		this.setState({...contact, loading: true});
+		this.isValid().then(this.storeContact);
+	},
 
-		if(this.isValid()) {
+	storeContact(isValid) {
+		let contact = this.state;
+		
+		if(isValid) {
 			$.ajax({
 				url: '/wp-admin/admin-ajax.php',
 				type: 'post',
@@ -44,8 +48,9 @@ const HelpForm = React.createClass({
 			}).then((res) => {
 				this.setState({...contact, loading: false});
 			});
+		} else {
+			this.setState({...contact, loading: false});
 		}
-		
 	},
 
 	handleChange(field, e) {
