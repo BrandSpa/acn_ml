@@ -7,9 +7,10 @@
     "type": "git"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "npm test -- --watch"
   },
-  "author": "Alejandro Sanabria <alesanabriav@gmail.com>",
+  "author": "Alejandro Sanabria <alejandro@brandspa.com>",
   "license": "MIT",
   "devDependencies": {
     "babel": "^6.5.2",
@@ -28,6 +29,7 @@
     "gulp-sass": "^2.3.2",
     "jest": "^18.1.0",
     "node-sass": "^3.11.1",
+    "react-addons-test-utils": "^15.4.2",
     "sass-loader": "^4.0.2",
     "webpack": "^1.14.0"
   },
@@ -37,12 +39,15 @@
     "axios": "^0.15.2",
     "babel-polyfill": "^6.20.0",
     "babel-preset-react": "^6.16.0",
-    "jquery": "^3.1.1",
+    "bootstrap": "3.3.7",
+    "flexslider": "2.6.3",
+    "jquery": "1.12.4",
     "lodash": "^4.16.6",
     "moment": "^2.15.2",
     "promise": "^7.1.1",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
+    "sidr": "2.2.1",
     "stripe": "^4.12.0",
     "validator": "^6.1.0",
     "vue": "^1"
