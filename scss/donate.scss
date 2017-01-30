@@ -4,11 +4,33 @@
   margin: 20px 0;
 
   &--blue {
+    color: #3C515F;
     input {
       border-color: #3C515F;
+      color: #3C515F;
+      &:hover, &focus {
+        border-color: #3C515F;
+      }
+      /* Webkit */
+      &::-webkit-input-placeholder { color: #CCC; }
+
+      /* Firefox 4-18 */
+      &:-moz-placeholder { color: #CCC; }
+
+      /* Firefox 19+ */
+      &::-moz-placeholder { color: #CCC; }
+
+      /* IE10+ */
+      &:-ms-input-placeholder { color: #CCC; }
     }
+
     .change-amount li a {
       border-color: #3C515F;
+      &:hover, &.active {
+        text-decoration: none;
+        background: #fff;
+        color: #fff;
+      }
     }
   }
 
