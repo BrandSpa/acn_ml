@@ -36,7 +36,12 @@ function bs_donate_sc($atts, $content = null) {
     "validation_email" => "Incorrect email",
     "validation_country" => "Incorrect country",
     "is_blue" => false,
-    "subtext" => ''
+    "subtext" => "",
+    "amount_text_ten" => "",
+    "amount_text_thirty" => "",
+    "amount_text_fifty" => "",
+    "amount_text_hundred" => "",
+    "amount_text_other" => ""
   ), $atts );
 
   ob_start();
@@ -104,6 +109,13 @@ function bs_donate_sc($atts, $content = null) {
       name: '<?php echo $at['placeholder_name'] ?>',
       email: '<?php echo $at['placeholder_email'] ?>',
       country: '<?php echo $at['placeholder_country'] ?>'
+    }"
+    :amount-texts="{
+      ten: '<?php echo $at['amount_text_ten'] ?>',
+      thirty: '<?php echo $at['amount_text_thirty'] ?>',
+      fifty: '<?php echo $at['amount_text_thirty'] ?>',
+      hundred: '<?php echo $at['amount_text_hundred'] ?>',
+      other: '<?php echo $at['amount_text_other'] ?>'
     }"
   >
   </donate-landing>
@@ -258,6 +270,32 @@ function bs_donate_vc() {
         "param_name" => "vertical",
         "value" => false
     ));
+
+    array_push($bs_donate_sections, array(
+       "type" => "checkbox",
+        "heading" => "vertical",
+        "param_name" => "vertical",
+        "value" => false
+    ));
+
+    $amount_texts = [
+      'ten',
+      'thirty',
+      'fifty',
+      'hundred',
+      'other'
+    ];
+
+    foreach($amount_texts as $amount_text) {
+      $amountText = array(
+        "type" => "textarea",
+        "heading" => "amount for " . $amount_text,
+        "param_name" => "amount_text_" . $amount_text,
+        "value" => ''
+      );
+
+      array_push($bs_donate_sections, $amountText);
+    }
 
   vc_map(
     array(

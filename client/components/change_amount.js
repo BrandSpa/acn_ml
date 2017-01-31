@@ -1,7 +1,8 @@
 'use strict';
 
 export default () => ({
-	props: ['other'],
+	props: ['other', 'amount-texts'],
+
 	
 	methods: {
 		isAmount(amount) {
@@ -20,6 +21,10 @@ export default () => ({
 	},
 
 	template:`
+    <div class="change-amount__copywrite">
+      
+    </div>
+
 		<ul class="change-amount" style="padding: 0 15px">
       <li class="col-md-2">
         <a
@@ -27,6 +32,7 @@ export default () => ({
           v-bind:class="[ $parent.amount == 10 ? 'active' : ''  ]"
           v-on:click="changeAmount(10, $event)">$ 10</a>
       </li>
+      
       <li class="col-md-2">
         <a
           href="#"
