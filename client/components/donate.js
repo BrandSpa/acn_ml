@@ -261,7 +261,8 @@ export default () => ({
 
 			const metadata = {
 				amount: amount,
-				type: donation_type
+				type: donation_type,
+				url: window.location.href
 			};
 
 			const event = {
